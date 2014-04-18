@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>modernizr</artifactId>
-    <version>2.6.2-2-SNAPSHOT</version>
+    <version>2.7.1-SNAPSHOT</version>
     <name>Modernizr</name>
     <description>WebJar for Modernizr</description>
     <url>http://webjars.org</url>
@@ -46,7 +46,7 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>2.6.2</upstreamVersion>
+        <upstreamVersion>2.7.1</upstreamVersion>
         <source.url.dev>http://modernizr.com/downloads</source.url.dev>
         <source.url.min>http://cdnjs.cloudflare.com/ajax/libs/${project.artifactId}/${upstreamVersion}/</source.url.min>
         <base.dir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</base.dir>
@@ -89,7 +89,19 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>2.5</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.5.1</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>sonatype-nexus-staging</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
         </plugins>
     </build>
